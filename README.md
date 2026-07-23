@@ -5,8 +5,6 @@
 
 C++ 实现的 MCP（Model Context Protocol）Server。基于 JSON-RPC 协议，支持 Tools / Resources / Prompts 三类原语的注册与调用。AI 客户端通过 stdio 或 HTTP 与 Server 通信，Server 调用本地工具执行命令、查询数据、访问文件。
 
-项目目标：用自己的 C++ 底层库（[my_muduo](https://github.com/ch0sen1pm/my_muduo) / [my_logger](https://github.com/ch0sen1pm/my_logger) / [memory-pool](https://github.com/ch0sen1pm/memory-pool) / [lockfree-queue](https://github.com/ch0sen1pm/lockfree-queue)）驱动一个完整的 AI 工具服务端。
-
 ## Architecture
 
 ```
@@ -38,9 +36,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [ ] 首批工具（echo / calculate / get_time / ask_ai）
 - [ ] HTTP 传输（POST /rpc + SSE 事件流）
 - [ ] 集成 my_logger（替代 spdlog，记录所有工具调用）
-- [ ] 集成 my_muduo（HTTP Server 模式）
-- [ ] 集成 memory-pool（高频 JSON 解析的内存管理）
-- [ ] 集成 lockfree-queue（多线程并发工具调用）
+- [ ] 集成 my_muduo（HTTP Server 模式，替代当前 httplib）
 
 ## Quick Start
 
