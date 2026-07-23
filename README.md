@@ -35,9 +35,6 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [ ] Stdio 传输（一行 JSON 进来 → dispatch → 一行 JSON 出去）
 - [ ] 首批工具（echo / calculate / get_time / ask_ai）
 - [ ] HTTP 传输（POST /rpc + SSE 事件流）
-- [ ] 集成 my_logger（替代 spdlog，记录所有工具调用）
-- [ ] 集成 my_muduo（HTTP Server 模式，替代当前 httplib）
-
 ## Quick Start
 
 ```bash
