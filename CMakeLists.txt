@@ -8,6 +8,7 @@ find_package(nlohmann_json CONFIG REQUIRED)
 add_executable(mcp_server
     src/main.cpp
     src/config/config.cpp
+    src/logger/logger.cpp
 )
 
 target_link_libraries(mcp_server PRIVATE spdlog::spdlog nlohmann_json::nlohmann_json)

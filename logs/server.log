@@ -1,0 +1,11 @@
+[2026-07-25 00:08:51.614] [info] [mcp_server] [13151] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-25 00:08:51.615] [info] [mcp_server] [13151] [/mnt/d/mcp_server/src/main.cpp:18] Server starting...
+[2026-07-25 00:08:51.615] [warning] [mcp_server] [13151] [/mnt/d/mcp_server/src/main.cpp:20] This is a warning test
+[2026-07-25 00:08:51.616] [error] [mcp_server] [13151] [/mnt/d/mcp_server/src/main.cpp:21] This is an error test
+[2026-07-25 00:08:51.616] [info] [mcp_server] [13151] [/mnt/d/mcp_server/src/main.cpp:23] Config check — port: 8089, log_level: debug
+[2026-07-25 00:11:05.869] [info] [mcp_server] [13814] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-25 00:11:05.870] [info] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:21] Server starting...
+[2026-07-25 00:11:05.873] [debug] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:22] Server port: 8089
+[2026-07-25 00:11:05.873] [warning] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:23] This is a warning test
+[2026-07-25 00:11:05.873] [error] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:24] This is an error test
+[2026-07-25 00:11:05.873] [info] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:26] Config check — port: 8089, log_level: debug

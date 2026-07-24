@@ -21,6 +21,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 |------|------|------|
 | **类型系统** | `types.h` | MCP 协议核心数据结构（Tool / Resource / Prompt / ToolResult） |
 | **配置** | `config.h` | 单例模式，JSON 文件加载 + 校验 + 默认值 |
+| **日志** | `logger.h` | 单例模式，spdlog 封装（双 sink：控制台 + 文件轮转），日志宏自动带文件名行号 |
 | **JSON-RPC** | `jsonrpc.h` | 请求/响应/错误 JSON 编解码 + 方法调度器 |
 | **传输** | `stdio_jsonrpc.h` / `http_jsonrpc.h` | stdio 行协议 / HTTP SSE + POST |
 | **MCP 核心** | `mcp_server.h` | 三个 map 管理 Tools / Resources / Prompts 的注册与调用 |
@@ -29,6 +30,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 ## Roadmap
 
 - [x] Config 模块（单例 + JSON 加载 + 校验 + 默认值）
+- [x] Logger 模块（spdlog 封装 + 日志宏 + 双 sink）
 - [ ] Types 模块（Tool / Resource / Prompt / ToolResult 数据结构）
 - [ ] JsonRpc 模块（Dispatcher：method → handler 路由）
 - [ ] McpServer 核心（register_tool / call_tool / list_tools）
@@ -45,8 +47,8 @@ vcpkg install nlohmann-json spdlog
 cmake -B build -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake
 cmake --build build
 
-# 运行（stdio 模式）
-./build/mcp_server --mode stdio
+# 运行
+./build/mcp_server
 ```
 
 ## 配置文件
