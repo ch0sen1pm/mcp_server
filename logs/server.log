@@ -18,3 +18,7 @@
 [2026-07-26 18:56:49.933] [info] [mcp_server] [49889] Logger initialized: name=mcp_server, file=../logs/server.log
 [2026-07-26 18:56:49.934] [info] [mcp_server] [49889] [/mnt/d/mcp_server/src/json_rpc/stdio_jsonrpc.cpp:122] JSON-RPC stdio server starting...
 [2026-07-26 18:56:49.935] [info] [mcp_server] [49889] [/mnt/d/mcp_server/src/main.cpp:44] Stdio test complete
+[2026-07-26 23:02:32.767] [info] [mcp_server] [17591] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-26 23:02:32.981] [info] [mcp_server] [17591] [/mnt/d/mcp_server/src/main.cpp:69] HTTP test complete
+[2026-07-26 23:04:18.364] [info] [mcp_server] [18186] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-26 23:04:18.571] [info] [mcp_server] [18186] [/mnt/d/mcp_server/src/main.cpp:69] HTTP test complete

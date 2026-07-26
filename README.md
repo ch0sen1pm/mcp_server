@@ -23,7 +23,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 | **配置** | `config.h` | 单例模式，JSON 文件加载 + 校验 + 默认值 |
 | **日志** | `logger.h` | 单例模式，spdlog 封装（双 sink：控制台 + 文件轮转），日志宏自动带文件名行号 |
 | **JSON-RPC** | `jsonrpc.h` / `jsonrpc_serialization.h` | JSON-RPC 2.0 消息类型（Request/Response/Error）+ 方法调度器 + 序列化 |
-| **传输** | `stdio_jsonrpc.cpp` | Content-Length 封包，stdin/stdout 读写，请求分发 + 错误处理 |
+| **传输** | `stdio_jsonrpc.cpp` / `http_jsonrpc.cpp` | Content-Length 封包（stdio）+ HTTP POST /jsonrpc + SSE（Pimpl 封装 cpp-httplib） |
 | **MCP 核心** | `mcp_server.h` | 三个 map 管理 Tools / Resources / Prompts 的注册与调用 |
 | **主程序** | `main.cpp` | 组装各层 + 注册具体工具 |
 
@@ -36,12 +36,12 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [ ] McpServer 核心（register_tool / call_tool / list_tools）
 - [x] Stdio 传输（Content-Length 封包 + stdin/stdout + 请求分发）
 - [ ] 首批工具（echo / calculate / get_time / ask_ai）
-- [ ] HTTP 传输（POST /rpc + SSE 事件流）
+- [x] HTTP 传输（POST /jsonrpc + CORS + 健康检查 + Pimpl）
 ## Quick Start
 
 ```bash
 # 依赖安装（vcpkg）
-vcpkg install nlohmann-json spdlog
+vcpkg install nlohmann-json spdlog cpp-httplib
 
 # 编译
 cmake -B build -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake

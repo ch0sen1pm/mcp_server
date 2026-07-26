@@ -2,8 +2,11 @@
 #include "logger.h"
 #include "jsonrpc.h"
 #include "jsonrpc_serialization.h"
+#include "http_jsonrpc.h"
+#include <httplib.h>
 #include <iostream>
-#include <sstream>
+#include <thread>
+#include <chrono>
 
 using namespace mcp;
 
@@ -21,27 +24,49 @@ int main() {
         return params.at("a").get<int>() + params.at("b").get<int>();
     });
 
-    // 构造假的 stdin（用 json::dump() 生成，Content-Length 自动算对）
-    auto make_msg = [](const json& j) -> std::string {
-        std::string body = j.dump();
-        return "Content-Length: " + std::to_string(body.size()) + "\r\n\r\n" + body;
-    };
+    // 启动 HTTP 服务器（后台线程）
+    HttpJsonRpcServer server(dispatcher, "0.0.0.0", 8080);
+    std::thread server_thread([&server]() {
+        server.run();
+    });
 
-    std::string fake_input =
-        make_msg({{"jsonrpc", "2.0"}, {"method", "echo"}, {"id", 1}, {"params", {{"msg", "hi"}}}}) +
-        make_msg({{"jsonrpc", "2.0"}, {"method", "add"}, {"id", 2}, {"params", {{"a", 3}, {"b", 4}}}});
+    // 等服务器就绪
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
-    std::istringstream fake_in(fake_input);
-    std::ostringstream fake_out;
+    // 用 httplib::Client 发请求测试
+    httplib::Client cli("localhost", 8080);
 
-    // 用自定义流运行 stdio server
-    StdioJsonRpcServer server(dispatcher, fake_in, fake_out);
-    server.run();
+    auto res = cli.Post("/jsonrpc",
+        R"({"jsonrpc":"2.0","method":"echo","id":1,"params":{"msg":"hello http"}})",
+        "application/json");
 
-    // 打印 fake stdout 的输出
-    std::cout << "=== Server output ===\n" << fake_out.str() << std::endl;
+    if (res) {
+        std::cout << "HTTP status: " << res->status << std::endl;
+        std::cout << "Response: " << res->body << std::endl;
+    } else {
+        std::cerr << "Request failed!" << std::endl;
+    }
 
-    MCP_LOG_INFO("Stdio test complete");
+    // 再测一条 add
+    auto res2 = cli.Post("/jsonrpc",
+        R"({"jsonrpc":"2.0","method":"add","id":2,"params":{"a":10,"b":20}})",
+        "application/json");
+    if (res2) {
+        std::cout << "Add result: " << res2->body << std::endl;
+    }
+
+    // 健康检查
+    auto health = cli.Get("/health");
+    if (health) {
+        std::cout << "Health: " << health->body << std::endl;
+    }
+
+    server.stop();
+    if (server_thread.joinable()) {
+        server_thread.join();
+    }
+
+    MCP_LOG_INFO("HTTP test complete");
     MCP_LOG_FLUSH();
     MCP_LOG_SHUTDOWN();
     return 0;
