@@ -9,3 +9,6 @@
 [2026-07-25 00:11:05.873] [warning] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:23] This is a warning test
 [2026-07-25 00:11:05.873] [error] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:24] This is an error test
 [2026-07-25 00:11:05.873] [info] [mcp_server] [13814] [/mnt/d/mcp_server/src/main.cpp:26] Config check — port: 8089, log_level: debug
+[2026-07-26 16:22:03.900] [info] [mcp_server] [18296] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-26 16:22:03.902] [info] [mcp_server] [18296] [/mnt/d/mcp_server/src/main.cpp:32] Dispatcher test passed
+[2026-07-26 16:22:03.903] [info] [mcp_server] [18296] [/mnt/d/mcp_server/src/main.cpp:46] Serialization test passed
