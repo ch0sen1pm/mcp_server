@@ -5,6 +5,8 @@
 #include <optional>
 #include <string>
 #include <unordered_map>
+#include <iostream>
+
 
 namespace mcp {
 
@@ -41,6 +43,22 @@ public:
     json call(const std::string& method, const json& params) const;
 private:
     std::unordered_map<std::string, Handler> handlers_;
+};
+
+class StdioJsonRpcServer {
+public:
+    explicit StdioJsonRpcServer(JsonRpcDispatcher dispatcher);
+    StdioJsonRpcServer(JsonRpcDispatcher dispatcher, std::istream& in, std::ostream& out);
+
+    void run();
+private:
+    bool readMessage(std::string& out_body);
+    void writeMessage(const json& msg);
+    JsonRpcResponse handleRequest(const JsonRpcRequest& req);
+
+    JsonRpcDispatcher dispatcher_;
+    std::istream& in_ = std::cin;
+    std::ostream& out_ = std::cout;
 };
 
 namespace jsonrpc_errc {

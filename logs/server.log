@@ -12,3 +12,9 @@
 [2026-07-26 16:22:03.900] [info] [mcp_server] [18296] Logger initialized: name=mcp_server, file=../logs/server.log
 [2026-07-26 16:22:03.902] [info] [mcp_server] [18296] [/mnt/d/mcp_server/src/main.cpp:32] Dispatcher test passed
 [2026-07-26 16:22:03.903] [info] [mcp_server] [18296] [/mnt/d/mcp_server/src/main.cpp:46] Serialization test passed
+[2026-07-26 18:54:45.599] [info] [mcp_server] [49335] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-26 18:54:45.600] [info] [mcp_server] [49335] [/mnt/d/mcp_server/src/json_rpc/stdio_jsonrpc.cpp:122] JSON-RPC stdio server starting...
+[2026-07-26 18:54:45.603] [info] [mcp_server] [49335] [/mnt/d/mcp_server/src/main.cpp:41] Stdio test complete
+[2026-07-26 18:56:49.933] [info] [mcp_server] [49889] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-26 18:56:49.934] [info] [mcp_server] [49889] [/mnt/d/mcp_server/src/json_rpc/stdio_jsonrpc.cpp:122] JSON-RPC stdio server starting...
+[2026-07-26 18:56:49.935] [info] [mcp_server] [49889] [/mnt/d/mcp_server/src/main.cpp:44] Stdio test complete

@@ -23,7 +23,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 | **配置** | `config.h` | 单例模式，JSON 文件加载 + 校验 + 默认值 |
 | **日志** | `logger.h` | 单例模式，spdlog 封装（双 sink：控制台 + 文件轮转），日志宏自动带文件名行号 |
 | **JSON-RPC** | `jsonrpc.h` / `jsonrpc_serialization.h` | JSON-RPC 2.0 消息类型（Request/Response/Error）+ 方法调度器 + 序列化 |
-| **传输** | `stdio_jsonrpc.h` / `http_jsonrpc.h` | stdio 行协议 / HTTP SSE + POST |
+| **传输** | `stdio_jsonrpc.cpp` | Content-Length 封包，stdin/stdout 读写，请求分发 + 错误处理 |
 | **MCP 核心** | `mcp_server.h` | 三个 map 管理 Tools / Resources / Prompts 的注册与调用 |
 | **主程序** | `main.cpp` | 组装各层 + 注册具体工具 |
 
@@ -34,7 +34,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [ ] Types 模块（Tool / Resource / Prompt / ToolResult 数据结构）
 - [x] JsonRpc 模块（消息类型 + 方法调度器 + nlohmann::json 序列化）
 - [ ] McpServer 核心（register_tool / call_tool / list_tools）
-- [ ] Stdio 传输（一行 JSON 进来 → dispatch → 一行 JSON 出去）
+- [x] Stdio 传输（Content-Length 封包 + stdin/stdout + 请求分发）
 - [ ] 首批工具（echo / calculate / get_time / ask_ai）
 - [ ] HTTP 传输（POST /rpc + SSE 事件流）
 ## Quick Start

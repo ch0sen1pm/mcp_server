@@ -11,6 +11,7 @@ add_executable(mcp_server
     src/logger/logger.cpp
     src/json_rpc/jsonrpc.cpp
     src/json_rpc/jsonrpc_serialization.cpp
+    src/json_rpc/stdio_jsonrpc.cpp
 )
 
 target_include_directories(mcp_server PRIVATE
