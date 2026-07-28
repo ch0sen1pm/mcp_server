@@ -12,12 +12,14 @@ add_executable(mcp_server
     src/json_rpc/jsonrpc_serialization.cpp
     src/json_rpc/stdio_jsonrpc.cpp
     src/json_rpc/http_jsonrpc.cpp
+    src/mcp/types.cpp
 )
 
 target_include_directories(mcp_server PRIVATE
     ${CMAKE_SOURCE_DIR}/src/config
     ${CMAKE_SOURCE_DIR}/src/logger
     ${CMAKE_SOURCE_DIR}/src/json_rpc
+    ${CMAKE_SOURCE_DIR}/src/mcp
     /mnt/d/vcpkg-linux/installed/x64-linux/include
 )
 

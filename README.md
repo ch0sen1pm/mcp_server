@@ -31,7 +31,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 
 - [x] Config 模块（单例 + JSON 加载 + 校验 + 默认值）
 - [x] Logger 模块（spdlog 封装 + 日志宏 + 双 sink）
-- [ ] Types 模块（Tool / Resource / Prompt / ToolResult 数据结构）
+- [x] Types 模块（Tool / Resource / Prompt / ToolResult 数据结构 + 序列化）
 - [x] JsonRpc 模块（消息类型 + 方法调度器 + nlohmann::json 序列化）
 - [ ] McpServer 核心（register_tool / call_tool / list_tools）
 - [x] Stdio 传输（Content-Length 封包 + stdin/stdout + 请求分发）
