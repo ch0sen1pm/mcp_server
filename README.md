@@ -35,7 +35,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [x] JsonRpc 模块（消息类型 + 方法调度器 + nlohmann::json 序列化）
 - [x] McpServer 核心（register_tool / call_tool / list_tools / mutex 安全）
 - [x] Stdio 传输（Content-Length 封包 + stdin/stdout + 请求分发）
-- [x] 首批工具（echo / add + HTTP + stdio 全链路测试）
+- [ ] 首批工具（echo / calculate / get_time / ask_ai）
 - [x] HTTP 传输（POST /jsonrpc + CORS + 健康检查 + Pimpl）
 ## Quick Start
 
