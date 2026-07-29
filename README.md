@@ -24,7 +24,7 @@ AI 客户端 (Claude / Cursor / Ollama)
 | **日志** | `logger.h` | 单例模式，spdlog 封装（双 sink：控制台 + 文件轮转），日志宏自动带文件名行号 |
 | **JSON-RPC** | `jsonrpc.h` / `jsonrpc_serialization.h` | JSON-RPC 2.0 消息类型（Request/Response/Error）+ 方法调度器 + 序列化 |
 | **传输** | `stdio_jsonrpc.cpp` / `http_jsonrpc.cpp` | Content-Length 封包（stdio）+ HTTP POST /jsonrpc + SSE（Pimpl 封装 cpp-httplib） |
-| **MCP 核心** | `mcp_server.h` | 三个 map 管理 Tools / Resources / Prompts 的注册与调用 |
+| **MCP 核心** | `mcp_server.h` / `mcp_server.cpp` | 三个 map（Tool/Resource/Prompt）管理 + 线程安全（mutex）+ 序列化 |
 | **主程序** | `main.cpp` | 组装各层 + 注册具体工具 |
 
 ## Roadmap
@@ -33,9 +33,9 @@ AI 客户端 (Claude / Cursor / Ollama)
 - [x] Logger 模块（spdlog 封装 + 日志宏 + 双 sink）
 - [x] Types 模块（Tool / Resource / Prompt / ToolResult 数据结构 + 序列化）
 - [x] JsonRpc 模块（消息类型 + 方法调度器 + nlohmann::json 序列化）
-- [ ] McpServer 核心（register_tool / call_tool / list_tools）
+- [x] McpServer 核心（register_tool / call_tool / list_tools / mutex 安全）
 - [x] Stdio 传输（Content-Length 封包 + stdin/stdout + 请求分发）
-- [ ] 首批工具（echo / calculate / get_time / ask_ai）
+- [x] 首批工具（echo / add + HTTP + stdio 全链路测试）
 - [x] HTTP 传输（POST /jsonrpc + CORS + 健康检查 + Pimpl）
 ## Quick Start
 
