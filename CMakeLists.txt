@@ -13,6 +13,7 @@ add_executable(mcp_server
     src/json_rpc/stdio_jsonrpc.cpp
     src/json_rpc/http_jsonrpc.cpp
     src/mcp/types.cpp
+    src/mcp/mcp_server.cpp
 )
 
 target_include_directories(mcp_server PRIVATE

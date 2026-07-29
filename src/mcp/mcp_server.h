@@ -51,7 +51,7 @@ private:
     std::unordered_map<std::string, PromptGenerator> prompt_generators_;
     mutable std::mutex prompts_mutex_;
 
-    SseEventCallback see_callback_;
+    SseEventCallback sse_callback_;
     mutable std::mutex sse_mutex_;
 };
 }
