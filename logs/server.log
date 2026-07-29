@@ -22,3 +22,5 @@
 [2026-07-26 23:02:32.981] [info] [mcp_server] [17591] [/mnt/d/mcp_server/src/main.cpp:69] HTTP test complete
 [2026-07-26 23:04:18.364] [info] [mcp_server] [18186] Logger initialized: name=mcp_server, file=../logs/server.log
 [2026-07-26 23:04:18.571] [info] [mcp_server] [18186] [/mnt/d/mcp_server/src/main.cpp:69] HTTP test complete
+[2026-07-29 23:07:58.956] [info] [mcp_server] [15752] Logger initialized: name=mcp_server, file=../logs/server.log
+[2026-07-29 23:07:58.967] [info] [mcp_server] [15752] [/mnt/d/mcp_server/src/main.cpp:152] Setup complete: 3 tools, 1 resources, 1 prompts
